@@ -99,76 +99,76 @@ const TEAM = [
     name: "Nurse Nanre Manpak",
     role: "Founder & President",
     location: "Abuja, FCT",
-    photo: "public/images/t1.avif",
+    photo: "/images/t1.avif",
     bio: "Nurse Mampak Nanre, born into the family of Mampak Nden from Kwanpe village in Langtang North LGA of Plateau State, was inspired to establish OSI-NMAN Foundation through her daily experiences in healthcare. In her work, she encountered patients facing not only illness but also neglect, poverty, and lack of support. While caring for the elderly, she witnessed loneliness, abandonment, and limited access to basic needs. Her work with cancer patients exposed her to the physical, psychological, emotional, and financial burdens of long-term treatment—often without adequate family or community support. Her compassion was further deepened by her encounters with orphans, who made up over 20% of her community population between 2002 and 2006 due to religious crises in Southern Plateau State, Nigeria. Many of these children lacked stable support systems and access to education from 2007 to date. These experiences ignited in her a strong desire to go beyond bedside care by creating a platform that provides holistic support—medically, emotionally, socially, and educationally. Through OSI-NMAN Foundation, she has supported orphans with scholarships in technical fields, provided food relief to the elderly, and delivered cancer information, education, screening, and care navigation to rural communities.",
   },
   {
     name: "Mr. Truman",
     role: "Vice President",
-    photo: "public/images/truman.avif",
+    photo: "/images/truman.avif",
     bio: "Mr. Truman is a communications specialist with experience in the development sector, specializing in strategic communications, advocacy and digital media. He has a strong track record in managing brand communications and reputation, developing IEC materials and delivering impactful campaigns. Through visual storytelling, he crafts compelling narratives that drive change, contributing to initiatives focused on justice sector reforms, inclusive political participation and humanitarian interventions in Nigeria.",
   },
   {
     name: "Mrs. Nanbol Rita Danbana",
     role: "Treasurer",
     location: "Abuja, FCT",
-    photo: "public/images/rita.avif",
+    photo: "/images/rita.avif",
     bio: "Mrs. Nanbol Rita Danbana is a dedicated professional based in Abuja, Nigeria. She is married and brings a strong passion for care, organization, and accountability to her work. As the Treasurer of OSI-NMAN Foundation, she plays a vital role in ensuring transparency, proper financial management, and the effective coordination of the foundation’s resources.",
   },
   {
     name: "Mr. Gashon Kumbin Sheni",
     role: "Secretary",
     location: "Plateau, Jos",
-    photo: "public/images/sheni.avif",
+    photo: "/images/sheni.avif",
     bio: "Mr. Gashon Kumbin Sheni is from Langtang North LGA of Plateau State. A trained Zoologist, he is deeply compassionate about supporting the needy and vulnerable in society. He serves as the Secretary of OSI-NMAN Foundation, where he contributes to effective coordination and administration of the organization’s activities. He is currently based in Jos North, Plateau State",
   },
   {
     name: "Domkur Isaac Nantip",
     role: "Assistant Secretary and Alumni",
     location: "Abuja, FCT",
-    photo: "public/images/nan.avif",
+    photo: "/images/nan.avif",
     bio: "Mr. Domkur Isaac Nantip is the Assistant Secretary of the Osinman Foundation, responsible for supporting administrative processes, managing documentation, and facilitating effective communication within the organization. He is also an alumnus of the foundation, having benefited from its programs and initiatives in the past. His personal experience as a beneficiary gives him a unique perspective and a deep understanding of the foundation’s mission, allowing him to contribute meaningfully to its ongoing efforts to support communities in need.",
   },
    {
     name: "Samson Shedrack Tongdil",
     role: "IT Assistant and Financial Secretary",
     location: "Abuja, FCT",
-    photo: "public/images/shed.avif",
+    photo: "/images/shed.avif",
     bio: "Samson Shedrack Tongdil serves as the IT and Assistant Financial Secretary of the Osinman Foundation. In this dual role, he oversees the foundation’s technology infrastructure while supporting financial record-keeping, reporting, and accountability processes. His contributions help ensure efficient operations and transparency across the organization, enabling the foundation to effectively serve its mission of supporting communities in need.",
   },
   {
     name: "Austin Odaji Oko",
     role: "Spiritual Head, and Memeber-Board of Trustees",
     location: "Abuja, FCT",
-    photo: "public/images/sphead.avif",
+    photo: "/images/sphead.avif",
     bio: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose. He offers spiritual leadership and advisory support, ensuring that the foundation’s activities remain grounded in compassion, service, and strong ethical values.",
   },
   {
     name: "Mrs. Justina Makama",
     role: "Social/welfare coordinator",
     location: "Kaduna State",
-    photo: "public/images/justina.avif",
+    photo: "/images/justina.avif",
     bio: "Mrs. Justina Makama serves as the Social/Welfare Coordinator at the Osinman Foundation. She supports the NGO by overseeing the planning and implementation of welfare initiatives, ensuring that the foundation’s programs effectively address the needs of vulnerable populations. Her role involves coordinating social support services, advocating for community welfare, and contributing to the overall mission of the foundation to improve the well-being of those it serves.",
   },
   {
     name: "Samuel Selfa Zingbong",
     role: "Outreach Coordinator",
     location: "Plateau State",
-    photo: "public/images/sam.avif",
+    photo: "/images/sam.avif",
     bio: "As the Plateau State Outreach Coordinator, Mr. Samuel Selfa Zingbong plays a vital role in advancing the Osinman Foundation’s mission at the grassroots level. He is actively involved in community outreach, building relationships, and ensuring that support reaches those who need it most across Plateau State",
   },
   {
     name: "Mr. Danbana Nansel Kubba",
     role: "LOC Chairman",
     location: "Plateau State",
-    photo: "public/images/danba.avif",
+    photo: "/images/danba.avif",
     bio: "Mr. Danbana Nansel Kubba is the LOC Chairman of the Osi-Nman Foundation, where he oversees the planning and coordination of the Foundation’s activities and programs. He is committed to community development and service.",
   },
   {
     name: "Dindul Gabriel Mampak",
     role: "Outreach Coordinator",
     location: "Plateau State",
-    photo: "public/images/gab.avif",
+    photo: "/images/gab.avif",
     bio: "Mr. Dindul Gabriel Mampak serves as the Plateau State Outreach Coordinator for the Osinman Foundation. In this role, he leads and coordinates outreach initiatives across the state, fostering community engagement and ensuring the effective delivery of the foundation’s programs.",
   },
   
@@ -366,11 +366,6 @@ export default function TeamPage() {
               </a>
             ))}
           </nav>
-
-          <a href="/get-involved" className="hidden md:inline-flex btn-primary">
-            Get Involved <ArrowRight size={16} />
-          </a>
-
           <button className="md:hidden p-2 -mr-2" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
             <Menu size={26} />
           </button>

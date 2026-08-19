@@ -90,7 +90,6 @@ function LinkedinIcon({ size = 18 }) {
 }
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
   { label: "Get to Know Us", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Events", href: "/events" },
@@ -380,11 +379,6 @@ export default function ProjectsPage() {
               </a>
             ))}
           </nav>
-
-          <a href="/get-involved" className="hidden md:inline-flex btn-primary">
-            Get Involved <ArrowRight size={16} />
-          </a>
-
           <button className="md:hidden p-2 -mr-2" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
             <Menu size={26} />
           </button>

@@ -322,11 +322,6 @@ export default function GetInvolvedPage() {
               </a>
             ))}
           </nav>
-
-          <a href="#give" className="hidden md:inline-flex btn-primary">
-            Donate Now <ArrowRight size={16} />
-          </a>
-
           <button className="md:hidden p-2 -mr-2" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
             <Menu size={26} />
           </button>

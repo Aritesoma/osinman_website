@@ -128,7 +128,7 @@ function GrowthRings({ className = "", style = {} }) {
 }
 
 
-const HERO_IMAGE_URL = "public/images/food.avif";
+const HERO_IMAGE_URL = "/images/food.avif";
 
 const NAV_LINKS = [
   { label: "Get to Know Us", href: "/about" },
@@ -180,7 +180,7 @@ const PROJECTS = [
     title: "Food Relief Initiative",
     body: "Supplying lacking communities with food and basic necessities to help them through difficult times.",
     tag: "Food",
-    photo: "public/images/food.avif",
+    photo: "/images/food.avif",
   },
    
   {
@@ -188,21 +188,21 @@ const PROJECTS = [
     title: "Youths in Trade",
     body: "Empowering youths with high-value skills to make a positive contributions to the society.",
     tag: "skills Training",
-    photo: "public/images/skill.avif",
+    photo: "/images/skill.avif",
   },
   {
     icon: HeartPulse,
     title: "Community Health Outreach",
     body: "Mobile clinics bringing free basic healthcare, screenings, and health education to hard-to-reach villages.",
     tag: "Health",
-    photo: "public/images/health.avif",
+    photo: "/images/health.avif",
   },
   {
     icon: BookOpen,
     title: "Bright Futures Literacy",
     body: "Providing scholarships to outstanding students in the local environment ",
     tag: "Education",
-    photo: "public/images/sch.avif",
+    photo: "/images/sch.avif",
   },
 ];
 
@@ -216,7 +216,7 @@ const TEAM = [
     role: "Founder & President",
     quote: "Every community already holds its own solutions — we just help unlock them.",
     tone: "burnt",
-    photo: "public/images/t1.avif",
+    photo: "/images/t1.avif",
   },
   {
     initials: "TB",
@@ -224,7 +224,7 @@ const TEAM = [
     role: "Vice President",
     quote: "Good programs are built slowly, and rebuilt often, alongside the people they serve.",
     tone: "green",
-    photo: "public/images/truman.avif",
+    photo: "/images/truman.avif",
   },
   {
     initials: "NRD",
@@ -232,7 +232,7 @@ const TEAM = [
     role: "Treasurer",
     quote: "Every naira has a name and a purpose — that's how trust is earned and kept.",
     tone: "gold",
-    photo: "public/images/rita.avif",
+    photo: "/images/rita.avif",
   },
   {
     initials: "GKS",
@@ -240,7 +240,7 @@ const TEAM = [
     role: "Secretary",
     quote: "You learn what a village needs by sitting in it, not by assuming from outside it.",
     tone: "burnt",
-    photo: "public/images/sheni.avif",
+    photo: "/images/sheni.avif",
   },
 ];
 
@@ -626,11 +626,6 @@ export default function Home() {
               </a>
             ))}
           </nav>
-
-          <a href="/get-involved" className="hidden md:inline-flex btn-primary">
-            Get Involved <ArrowRight size={16} />
-          </a>
-
           <button
             className="md:hidden p-2 -mr-2"
             aria-label="Open menu"
@@ -707,7 +702,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={160}>
               <p className="text-cream mt-6 max-w-md" style={{ opacity: 0.75, fontSize: "1.05rem", lineHeight: 1.7 }}>
-                Since 2007, we've worked alongside communities across Nigeria on education, health,
+                Since 2014, we've worked alongside communities across Nigeria on education, health,
                 and livelihood programs — small, patient efforts that add up to lasting change.
               </p>
             </Reveal>
@@ -722,7 +717,7 @@ export default function Home() {
             <Reveal delay={320}>
               <div className="grid grid-cols-3 gap-6 mt-16 max-w-md">
                 {[
-                  ["19", "years of work"],
+                  ["12", "years of work"],
                   ["4", "states reached"],
                   ["10k+", "lives touched"],
                 ].map(([num, label]) => (
@@ -813,7 +808,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="font-display font-medium mb-4" style={{ fontSize: "clamp(1.9rem, 4vw, 2.8rem)" }}>
-              Nineteen years, one community at a time.
+              Twelve years, one community at a time.
             </h2>
           </Reveal>
           <Reveal delay={120}>
