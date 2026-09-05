@@ -130,6 +130,15 @@ function GrowthRings({ className = "", style = {} }) {
 
 const HERO_IMAGE_URL = "/images/food.avif";
 
+function WhatsAppIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z" />
+      <path d="M12.02 2C6.5 2 2.03 6.42 2.03 11.9c0 1.83.5 3.53 1.35 5l-1.4 5.1 5.24-1.37a10.03 10.03 0 0 0 4.8 1.22h.01c5.52 0 9.99-4.42 9.99-9.9C22.02 6.42 17.55 2 12.02 2Zm5.9 15.75c-.62.62-1.72 1.24-2.53 1.4-.65.14-1.5.25-4.36-.94-3.65-1.5-6-5.2-6.18-5.44-.18-.24-1.48-1.97-1.48-3.76 0-1.79.94-2.66 1.28-3.03.34-.37.73-.46.98-.46h.7c.22 0 .53-.04.8.6.29.68.97 2.36 1.05 2.53.08.17.13.36.02.58-.11.22-.16.36-.32.55-.16.19-.34.42-.48.56-.16.16-.33.34-.14.66.19.32.85 1.4 1.83 2.27 1.26 1.11 2.31 1.46 2.65 1.62.34.16.54.14.74-.08.2-.22.85-.98 1.08-1.32.23-.34.46-.28.77-.17.31.11 1.97.93 2.31 1.1.34.17.56.25.64.4.08.15.08.85-.34 1.47Z" />
+    </svg>
+  );
+}
+
 const NAV_LINKS = [
   { label: "Get to Know Us", href: "/about" },
   { label: "Projects", href: "/projects" },
@@ -141,8 +150,8 @@ const NAV_LINKS = [
 const JOURNEY = [
   {
     year: "2007",
-    title: "One classroom, twelve children",
-    body: "OSINMAN began as a single after-school literacy class run out of a borrowed church hall in Plateau State",
+    title: "One community, needs identified",
+    body: "OSINMAN began by responding to vulnerable people in Plateau State—reaching widows, older adults, and struggling families through borrowed spaces and open fields. What began as a simple act of compassion became a lasting commitment to care, dignity, and practical support.",
   },
   {
     year: "2016",
@@ -214,7 +223,7 @@ const TEAM = [
     initials: "MN",
     name: "Nurse Mampak Nanre",
     role: "Founder & President",
-    quote: "Every community already holds its own solutions — we just help unlock them.",
+    quote: "Nurse Mampak Nanre, born into the family of Mampak Nden from Kwanpe village in Langtang North LGA of Plateau State, was inspired to establish OSI-NMAN Foundation through her daily experiences in healthcare.",
     tone: "burnt",
     photo: "/images/t1.avif",
   },
@@ -222,7 +231,7 @@ const TEAM = [
     initials: "TB",
     name: "Mr Truman",
     role: "Vice President",
-    quote: "Good programs are built slowly, and rebuilt often, alongside the people they serve.",
+    quote: "Mr. Truman is a communications specialist with experience in the development sector, specializing in strategic communications, advocacy and digital media.",
     tone: "green",
     photo: "/images/truman.avif",
   },
@@ -230,7 +239,7 @@ const TEAM = [
     initials: "NRD",
     name: "Mrs. Nanbol Rita Danbana",
     role: "Treasurer",
-    quote: "Every naira has a name and a purpose — that's how trust is earned and kept.",
+    quote: "Mrs. Nanbol Rita Danbana is a dedicated professional based in Abuja, Nigeria. She is married and brings a strong passion for care, organization, and accountability to her work.",
     tone: "gold",
     photo: "/images/rita.avif",
   },
@@ -238,7 +247,7 @@ const TEAM = [
     initials: "GKS",
     name: "Mr. Gashon Kumbin Sheni",
     role: "Secretary",
-    quote: "You learn what a village needs by sitting in it, not by assuming from outside it.",
+    quote: "Mr. Gashon Kumbin Sheni is from Langtang North LGA of Plateau State. A trained Zoologist, he is deeply compassionate about supporting the needy and vulnerable in society.",
     tone: "burnt",
     photo: "/images/sheni.avif",
   },
@@ -616,7 +625,7 @@ export default function Home() {
               className="rounded-full object-cover"
               style={{ width: 40, height: 40 }}
             />
-            <span className="font-display font-semibold text-lg tracking-tight">OSINMAN</span>
+            <span className="font-display font-semibold text-lg tracking-tight">OSINMAN FOUNDATION</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -702,7 +711,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={160}>
               <p className="text-cream mt-6 max-w-md" style={{ opacity: 0.75, fontSize: "1.05rem", lineHeight: 1.7 }}>
-                Since 2014, we've worked alongside communities across Nigeria on education, health,
+                Since 2007, we've worked alongside communities across Nigeria on education, health,
                 and livelihood programs — small, patient efforts that add up to lasting change.
               </p>
             </Reveal>
@@ -717,7 +726,7 @@ export default function Home() {
             <Reveal delay={320}>
               <div className="grid grid-cols-3 gap-6 mt-16 max-w-md">
                 {[
-                  ["12", "years of work"],
+                  ["19", "years of work"],
                   ["4", "states reached"],
                   ["10k+", "lives touched"],
                 ].map(([num, label]) => (
@@ -928,17 +937,9 @@ export default function Home() {
                       className="team-quote text-inksoft flex-1"
                       style={{ lineHeight: 1.5, fontSize: "0.8rem" }}
                     >
-                      "{m.quote}"
+                      {m.quote}
                     </p>
-                    <div className="flex flex-wrap items-center justify-between gap-2 mt-3">
-                      <div className="team-social flex gap-2 sm:gap-3">
-                        <a href="#" aria-label="LinkedIn" className="text-inksoft">
-                          <LinkedinIcon size={15} />
-                        </a>
-                        <a href="#" aria-label="Twitter" className="text-inksoft">
-                          <TwitterIcon size={15} />
-                        </a>
-                      </div>
+                    <div className="flex items-center justify-end mt-3">
                       <a href="/team" className="btn-ghost-ink" style={{ fontSize: "0.78rem" }}>
                         Learn more <ArrowUpRight size={12} />
                       </a>
@@ -1007,7 +1008,7 @@ export default function Home() {
                   <span className="font-display text-cream font-semibold">OSINMAN</span>
                 </div>
                 <p className="text-cream" style={{ opacity: 0.55, lineHeight: 1.7, fontSize: "0.9rem" }}>
-                  Growing communities across Nigeria, one program at a time, since 2014.
+                  Growing communities across Nigeria, one program at a time, since 2007.
                 </p>
               </div>
             </Reveal>
@@ -1018,13 +1019,13 @@ export default function Home() {
                 <div className="flex flex-col gap-3 text-cream" style={{ opacity: 0.75, fontSize: "0.92rem" }}>
                   <span className="flex items-start gap-2">
                     <MapPin size={16} className="mt-0.5 shrink-0" color="var(--gold)" />
-                    12 Ripple Street, Wuse II, Abuja, FCT, Nigeria
+                    House 9, Ikogosi Warm Springs, Brookshore Residents (Hall7), Karsana, F.C.T Abuja
                   </span>
-                  <a href="mailto:hello@osinmanfoundation.org" className="flex items-center gap-2 hover:text-gold transition-colors">
-                    <Mail size={16} color="var(--gold)" /> hello@osinmanfoundation.org
+                  <a href="mailto:osinmanfoundation@gmail.com" className="flex items-center gap-2 hover:text-gold transition-colors">
+                    <Mail size={16} color="var(--gold)" /> osinmanfoundation@gmail.com
                   </a>
-                  <a href="tel:+2348000000000" className="flex items-center gap-2 hover:text-gold transition-colors">
-                    <Phone size={16} color="var(--gold)" /> +234 800 000 0000
+                  <a href="tel:+2348037051210" className="flex items-center gap-2 hover:text-gold transition-colors">
+                    <Phone size={16} color="var(--gold)" /> +234 803 705 1210
                   </a>
                 </div>
               </div>
@@ -1047,10 +1048,8 @@ export default function Home() {
               <div>
                 <p className="eyebrow on-dark mb-4">Follow Along</p>
                 <div className="flex gap-3">
-                  <a href="#" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
-                  <a href="#" aria-label="Twitter" className="social-dot"><TwitterIcon size={17} /></a>
-                  <a href="#" aria-label="Instagram" className="social-dot"><InstagramIcon size={17} /></a>
-                  <a href="#" aria-label="LinkedIn" className="social-dot"><LinkedinIcon size={17} /></a>
+                  <a href="https://web.facebook.com/osinmanfoundation/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
+                  <a href="https://wa.me/2348037051210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-dot"><WhatsAppIcon size={17} /></a>
                 </div>
               </div>
             </Reveal>

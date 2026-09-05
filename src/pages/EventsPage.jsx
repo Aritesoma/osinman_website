@@ -76,6 +76,15 @@ function LinkedinIcon({ size = 18 }) {
   );
 }
 
+function WhatsAppIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z" />
+      <path d="M12.02 2C6.5 2 2.03 6.42 2.03 11.9c0 1.83.5 3.53 1.35 5l-1.4 5.1 5.24-1.37a10.03 10.03 0 0 0 4.8 1.22h.01c5.52 0 9.99-4.42 9.99-9.9C22.02 6.42 17.55 2 12.02 2Zm5.9 15.75c-.62.62-1.72 1.24-2.53 1.4-.65.14-1.5.25-4.36-.94-3.65-1.5-6-5.2-6.18-5.44-.18-.24-1.48-1.97-1.48-3.76 0-1.79.94-2.66 1.28-3.03.34-.37.73-.46.98-.46h.7c.22 0 .53-.04.8.6.29.68.97 2.36 1.05 2.53.08.17.13.36.02.58-.11.22-.16.36-.32.55-.16.19-.34.42-.48.56-.16.16-.33.34-.14.66.19.32.85 1.4 1.83 2.27 1.26 1.11 2.31 1.46 2.65 1.62.34.16.54.14.74-.08.2-.22.85-.98 1.08-1.32.23-.34.46-.28.77-.17.31.11 1.97.93 2.31 1.1.34.17.56.25.64.4.08.15.08.85-.34 1.47Z" />
+    </svg>
+  );
+}
+
 const NAV_LINKS = [
   { label: "Get to Know Us", href: "/about" },
   { label: "Projects", href: "/projects" },
@@ -126,32 +135,39 @@ const UPCOMING_EVENTS = [
 
 const PAST_EVENTS = [
   {
-    date: "March 22, 2026",
-    title: "World Water Day Clean-Up & Awareness Walk",
-    location: "Kaduna State",
-    recap: "Volunteers and community members cleaned up local water sources and hosted a public awareness session on hygiene and sanitation.",
-    photo: "/images/events/water-day.jpg",
+    date: "December 2022",
+    title: "2022 Osinman Foundation Outreach",
+    location: "Langtang, Plateau State",
+    recap: "The President of the Osi-Nman Foundation shares a joyful dance moment with elderly attendees, creating a heartwarming atmosphere of celebration, connection, and togetherness.",
+    photo: "/images/events/2022-langtang-outreach.jpg",
   },
   {
-    date: "March 8, 2026",
-    title: "International Women's Day Empowerment Summit",
-    location: "Abuja, FCT",
-    recap: "A day of panels and skills workshops for women entrepreneurs, capped off by micro-grant awards to five new small businesses.",
-    photo: "/images/events/womens-day.jpg",
+    date: "Past Outreach",
+    title: "Osinman Foundation Outreach",
+    location: "Plateau State",
+    recap: "A guest preacher stands alongside a resilient elderly woman, sharing a message of hope and fellowship under the canopy.",
+    photo: "/images/events/guest-preacher-fellowship.jpg",
+  },
+  {
+    date: "Past Outreach",
+    title: "Osinman Foundation Outreach",
+    location: "Plateau State",
+    recap: "Hearts full and hands heavy with blessings as beneficiaries depart our outreach event.",
+    photo: "/images/events/beneficiaries-departure.jpg",
   },
   {
     date: "December 2025",
-    title: "End-of-Year Appreciation & Fundraising Dinner",
-    location: "Abuja, FCT",
-    recap: "Donors, volunteers, and partners gathered to celebrate the year's milestones and raise funds for the coming year's programs.",
-    photo: "/images/events/year-end-dinner.jpg",
+    title: "2025 Osinman Foundation Outreach",
+    location: "Langtang, Plateau State",
+    recap: "Pure joy in motion! We love seeing our elderly beneficiaries sharing a joyful dance during the final Osi-Nman Foundation outreach of 2025 in Langtang, Plateau State.",
+    photo: "/images/events/2025-langtang-outreach-dance.png",
   },
   {
-    date: "2024",
-    title: "Osinman Skills Center 5th Anniversary",
-    location: "Plateau State",
-    recap: "Marked five years of the Skills Center with an open house, alumni showcase, and testimonials from graduates now running their own trades.",
-    photo: "/images/events/skills-anniversary.jpg",
+    date: "December 2025",
+    title: "2025 Osinman Foundation Outreach",
+    location: "Langtang, Plateau State",
+    recap: "Behind the scenes of impact! A cross-section of essential food relief packages sorted, packed, and ready for distribution at the Osi-Nman Foundation outreach.",
+    photo: "/images/events/2025-food-relief-packing.jpg",
   },
 ];
 
@@ -346,7 +362,7 @@ export default function EventsPage() {
               className="rounded-full object-cover"
               style={{ width: 40, height: 40 }}
             />
-            <span className="font-display font-semibold text-lg tracking-tight">OSINMAN</span>
+            <span className="font-display font-semibold text-lg tracking-tight">OSINMAN FOUNDATION</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -536,7 +552,7 @@ export default function EventsPage() {
                 <span className="font-display text-cream font-semibold">OSINMAN</span>
               </div>
               <p className="text-cream" style={{ opacity: 0.55, lineHeight: 1.7, fontSize: "0.9rem" }}>
-                Growing communities across Nigeria, one program at a time, since 2014.
+                Growing communities across Nigeria, one program at a time, since 2007.
               </p>
             </div>
 
@@ -545,13 +561,13 @@ export default function EventsPage() {
               <div className="flex flex-col gap-3 text-cream" style={{ opacity: 0.75, fontSize: "0.92rem" }}>
                 <span className="flex items-start gap-2">
                   <MapPin size={16} className="mt-0.5 shrink-0" color="var(--gold)" />
-                  12 Ripple Street, Wuse II, Abuja, FCT, Nigeria
+                  House 9, Ikogosi Warm Springs, Brookshore Residents (Hall7), Karsana, F.C.T Abuja
                 </span>
-                <a href="mailto:hello@osinmanfoundation.org" className="flex items-center gap-2 hover:text-gold transition-colors">
-                  <Mail size={16} color="var(--gold)" /> hello@osinmanfoundation.org
+                <a href="mailto:osinmanfoundation@gmail.com" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <Mail size={16} color="var(--gold)" /> osinmanfoundation@gmail.com
                 </a>
-                <a href="tel:+2348000000000" className="flex items-center gap-2 hover:text-gold transition-colors">
-                  <Phone size={16} color="var(--gold)" /> +234 800 000 0000
+                <a href="tel:+2348037051210" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <Phone size={16} color="var(--gold)" /> +234 803 705 1210
                 </a>
               </div>
             </div>
@@ -570,10 +586,8 @@ export default function EventsPage() {
             <div>
               <p className="eyebrow on-dark mb-4">Follow Along</p>
               <div className="flex gap-3">
-                <a href="#" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
-                <a href="#" aria-label="Twitter" className="social-dot"><TwitterIcon size={17} /></a>
-                <a href="#" aria-label="Instagram" className="social-dot"><InstagramIcon size={17} /></a>
-                <a href="#" aria-label="LinkedIn" className="social-dot"><LinkedinIcon size={17} /></a>
+                <a href="https://web.facebook.com/osinmanfoundation/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
+                <a href="https://wa.me/2348037051210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-dot"><WhatsAppIcon size={17} /></a>
               </div>
             </div>
           </div>
