@@ -114,7 +114,7 @@ const ONGOING_PROJECTS = [
     body: "Supplying lacking communities with food and basic necessities to help them through difficult times.",
     tag: "Food",
     photo: "/images/food.avif",
-    since: "2018",
+    since: "2012",
     location: "Plateau & Niger States",
   },
   {
@@ -123,7 +123,7 @@ const ONGOING_PROJECTS = [
     body: "Empowering youths with high-value skills to make a positive contribution to society.",
     tag: "Skills Training",
     photo: "/images/skill.avif",
-    since: "2019",
+    since: "2012",
     location: "Osinman Skills Center, Plateau State",
   },
   {
@@ -132,7 +132,7 @@ const ONGOING_PROJECTS = [
     body: "Mobile clinics bringing free basic healthcare, screenings, and health education to hard-to-reach villages.",
     tag: "Health",
     photo: "/images/health.avif",
-    since: "2016",
+    since: "2012",
     location: "Kaduna & Nasarawa States",
   },
   {
@@ -141,7 +141,7 @@ const ONGOING_PROJECTS = [
     body: "Providing scholarships to outstanding students in the local environment.",
     tag: "Education",
     photo: "/images/sch.avif",
-    since: "2007",
+    since: "2012",
     location: "Plateau State",
   },
 ];

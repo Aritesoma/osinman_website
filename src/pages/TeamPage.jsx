@@ -128,7 +128,7 @@ const TEAM = [
     name: "Mr. Gashon Kumbin Sheni",
     role: "Secretary",
     location: "Plateau, Jos",
-    photo: "/images/sheni.avif",
+    photo: "/images/sphead.avif",
     bio: "Mr. Gashon Kumbin Sheni is from Langtang North LGA of Plateau State. A trained Zoologist, he is deeply compassionate about supporting the needy and vulnerable in society. He serves as the Secretary of OSI-NMAN Foundation, where he contributes to effective coordination and administration of the organization’s activities. He is currently based in Jos North, Plateau State",
   },
   {
@@ -139,19 +139,20 @@ const TEAM = [
     bio: "Mr. Domkur Isaac Nantip is the Assistant Secretary of the Osinman Foundation, responsible for supporting administrative processes, managing documentation, and facilitating effective communication within the organization. He is also an alumnus of the foundation, having benefited from its programs and initiatives in the past. His personal experience as a beneficiary gives him a unique perspective and a deep understanding of the foundation’s mission, allowing him to contribute meaningfully to its ongoing efforts to support communities in need.",
   },
    {
+    name: "Austin Odaji Oko",
+    role: "Spiritual Head, and Member-Board of Trustees",
+    location: "Abuja, FCT",
+    photo: "/images/sheni.avif",
+    bio: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose. He offers spiritual leadership and advisory support, ensuring that the foundation’s activities remain grounded in compassion, service, and strong ethical values.",
+  },
+   {
     name: "Samson Shedrack Tongdil",
     role: "IT Assistant and Financial Secretary",
     location: "Abuja, FCT",
     photo: "/images/shed.avif",
     bio: "Samson Shedrack Tongdil serves as the IT and Assistant Financial Secretary of the Osinman Foundation. In this dual role, he oversees the foundation’s technology infrastructure while supporting financial record-keeping, reporting, and accountability processes. His contributions help ensure efficient operations and transparency across the organization, enabling the foundation to effectively serve its mission of supporting communities in need.",
   },
-  {
-    name: "Austin Odaji Oko",
-    role: "Spiritual Head, and Member-Board of Trustees",
-    location: "Abuja, FCT",
-    photo: "/images/sphead.avif",
-    bio: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose. He offers spiritual leadership and advisory support, ensuring that the foundation’s activities remain grounded in compassion, service, and strong ethical values.",
-  },
+ 
   {
     name: "Mrs. Justina Makama",
     role: "Social/welfare coordinator",

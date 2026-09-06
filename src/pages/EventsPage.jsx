@@ -426,8 +426,8 @@ export default function EventsPage() {
           </Reveal>
           <Reveal delay={180}>
             <p className="text-cream mt-5 max-w-lg" style={{ opacity: 0.75, lineHeight: 1.75 }}>
-              From fundraising dinners to graduation ceremonies, our events are where donors,
-              volunteers, and the people we serve get to stand in the same room.
+             From counselling and community outreach to health initiatives and shared moments of 
+             connection, our events bring people together—creating space to listen, care, connect, and make a difference.
             </p>
           </Reveal>
         </div>

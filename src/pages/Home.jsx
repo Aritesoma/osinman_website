@@ -150,8 +150,8 @@ const NAV_LINKS = [
 const JOURNEY = [
   {
     year: "2007",
-    title: "One community, needs identified",
-    body: "OSINMAN began by responding to vulnerable people in Plateau State—reaching widows, older adults, and struggling families through borrowed spaces and open fields. What began as a simple act of compassion became a lasting commitment to care, dignity, and practical support.",
+    title: "The Vision Takes Root",
+    body: "The vision and commission to serve vulnerable people were received, key community needs were identified, and plans began to turn the vision into meaningful action.",
   },
   {
     year: "2016",
