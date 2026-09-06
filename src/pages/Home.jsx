@@ -13,6 +13,7 @@ import {
   Handshake,
   Target,
   Compass,
+  Play,
 } from "lucide-react";
 
 /* ---------------------------------------------------------
@@ -154,9 +155,9 @@ const JOURNEY = [
     body: "The vision and commission to serve vulnerable people were received, key community needs were identified, and plans began to turn the vision into meaningful action.",
   },
   {
-    year: "2016",
-    title: "First health outreach",
-    body: "A volunteer medical team carried free check-ups and basic medicine to three rural communities.",
+    year: "2012",
+    title: "First Major Community outreach",
+    body: "Supporting elderly widows, and the commencement of scholarship awards for children without support",
   },
   {
     year: "2019",
@@ -256,6 +257,7 @@ const TEAM = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -751,6 +753,69 @@ export default function Home() {
                 className="w-full h-full object-cover block"
                 style={{ minHeight: 380 }}
               />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- VIDEO ----------------
+          Landscape (16:9) video placeholder. To add your video later:
+          1. Drop the video file in /public/videos/ (e.g. public/videos/our-story.mp4)
+          2. Add a thumbnail image to /public/images/ (e.g. public/images/video-poster.jpg)
+          3. Uncomment the `src` line below and update the `poster` path if needed.
+      ---------------------------------------------------------------------------- */}
+      <section className="bg-cream py-20 md:py-24">
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal>
+            <p className="eyebrow mb-4 text-center" style={{ display: "block" }}>
+              See Us In Action
+            </p>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2
+              className="font-display font-medium mb-10 text-center"
+              style={{ fontSize: "clamp(1.7rem, 3.5vw, 2.4rem)" }}
+            >
+              Watch our story unfold.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={120} className="reveal-image">
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{ aspectRatio: "16 / 9", boxShadow: "0 24px 60px -20px rgba(0,0,0,0.45)" }}
+            >
+              <video
+                className="w-full h-full object-cover block"
+                poster="public/images/skill.avif"
+                controls
+                playsInline
+                src="public/videos/osinmanvid.mp4"
+                onPlay={() => setVideoPlaying(true)}
+                onPause={() => setVideoPlaying(false)}
+                onEnded={() => setVideoPlaying(false)}
+                style={{ background: "var(--ink)" }}
+              >
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Decorative play button — fades out once the video starts playing,
+                  and reappears if it's paused or ends. */}
+              <div
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                style={{
+                  background: "rgba(36,28,23,0.15)",
+                  opacity: videoPlaying ? 0 : 1,
+                  transition: "opacity 0.35s ease",
+                }}
+              >
+                <span
+                  className="flex items-center justify-center rounded-full"
+                  style={{ width: 72, height: 72, background: "rgba(251,245,236,0.92)" }}
+                >
+                  <Play size={26} color="var(--burnt)" style={{ marginLeft: 3 }} />
+                </span>
+              </div>
             </div>
           </Reveal>
         </div>
