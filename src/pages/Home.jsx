@@ -13,7 +13,6 @@ import {
   Handshake,
   Target,
   Compass,
-  Play,
 } from "lucide-react";
 
 /* ---------------------------------------------------------
@@ -130,6 +129,10 @@ function GrowthRings({ className = "", style = {} }) {
 
 
 const HERO_IMAGE_URL = "/images/food.avif";
+
+// Replace with your own YouTube video ID — the part after "v=" in
+// https://www.youtube.com/watch?v=XXXXXXXXXXX
+const YOUTUBE_VIDEO_ID = "TbhP0j4mkPY";
 
 function WhatsAppIcon({ size = 18 }) {
   return (
@@ -257,7 +260,6 @@ const TEAM = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -759,10 +761,9 @@ export default function Home() {
       </section>
 
       {/* ---------------- VIDEO ----------------
-          Landscape (16:9) video placeholder. To add your video later:
-          1. Drop the video file in /public/videos/ (e.g. public/videos/our-story.mp4)
-          2. Add a thumbnail image to /public/images/ (e.g. public/images/video-poster.jpg)
-          3. Uncomment the `src` line below and update the `poster` path if needed.
+          Landscape (16:9) YouTube embed. To use your own video:
+          1. Replace YOUTUBE_VIDEO_ID below (the part after "v=" in the
+             YouTube URL, e.g. https://www.youtube.com/watch?v=XXXXXXXXXXX)
       ---------------------------------------------------------------------------- */}
       <section className="bg-cream py-20 md:py-24">
         <div className="max-w-5xl mx-auto px-6">
@@ -785,37 +786,15 @@ export default function Home() {
               className="relative rounded-2xl overflow-hidden"
               style={{ aspectRatio: "16 / 9", boxShadow: "0 24px 60px -20px rgba(0,0,0,0.45)" }}
             >
-              <video
-                className="w-full h-full object-cover block"
-                poster="public/images/skill.avif"
-                controls
-                playsInline
-                src="public/videos/osinmanvid.mp4"
-                onPlay={() => setVideoPlaying(true)}
-                onPause={() => setVideoPlaying(false)}
-                onEnded={() => setVideoPlaying(false)}
+              <iframe
+                className="w-full h-full block"
+                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
+                title="OSINMAN Foundation — Our Story"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
                 style={{ background: "var(--ink)" }}
-              >
-                Your browser does not support the video tag.
-              </video>
-
-              {/* Decorative play button — fades out once the video starts playing,
-                  and reappears if it's paused or ends. */}
-              <div
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                style={{
-                  background: "rgba(36,28,23,0.15)",
-                  opacity: videoPlaying ? 0 : 1,
-                  transition: "opacity 0.35s ease",
-                }}
-              >
-                <span
-                  className="flex items-center justify-center rounded-full"
-                  style={{ width: 72, height: 72, background: "rgba(251,245,236,0.92)" }}
-                >
-                  <Play size={26} color="var(--burnt)" style={{ marginLeft: 3 }} />
-                </span>
-              </div>
+              />
             </div>
           </Reveal>
         </div>
