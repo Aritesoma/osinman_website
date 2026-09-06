@@ -882,7 +882,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="font-display font-medium mb-4" style={{ fontSize: "clamp(1.9rem, 4vw, 2.8rem)" }}>
-              Twelve years, one community at a time.
+              Nineteen years, one community at a time.
             </h2>
           </Reveal>
           <Reveal delay={120}>
