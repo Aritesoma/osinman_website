@@ -99,7 +99,7 @@ const PAYSTACK_PUBLIC_KEY = "pk_test_replace_with_your_public_key";
 
 // Sends the form straight to osimanfoundation@gmail.com via Formspree.
 // Replace YOUR_FORM_ID with the ID Formspree gives you.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrpbkpr";
 
 export default function GetInvolvedPage() {
   const [menuOpen, setMenuOpen] = useState(false);
