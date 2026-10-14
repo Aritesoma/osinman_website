@@ -99,7 +99,7 @@ const PAYSTACK_PUBLIC_KEY = "pk_test_replace_with_your_public_key";
 
 // Sends the form straight to osimanfoundation@gmail.com via Formspree.
 // Replace YOUR_FORM_ID with the ID Formspree gives you.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrpbkpr";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrpbakpr";
 
 export default function GetInvolvedPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -145,7 +145,22 @@ export default function GetInvolvedPage() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        setError("Something went wrong sending your message. Please try again.");
+        // Formspree explains rejections in the response body, so read it
+        // and surface it instead of showing only a generic message.
+        let reason = "";
+        try {
+          const data = await res.json();
+          console.error("Formspree error:", res.status, data);
+          reason =
+            data.error ||
+            (data.errors && data.errors.map((er) => er.message).join(", ")) ||
+            "";
+        } catch {
+          console.error("Formspree error:", res.status);
+        }
+        setError(
+          `Something went wrong sending your message (error ${res.status}${reason ? `: ${reason}` : ""}). Please try again.`
+        );
       }
     } catch {
       setError("Couldn't reach the server. Check your connection and try again.");
