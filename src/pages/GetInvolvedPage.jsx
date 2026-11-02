@@ -58,7 +58,7 @@ export default function GetInvolvedPage() {
   const [scrolled, setScrolled] = useState(false);
   
   // Donation Form State
-  const [donationForm, setDonationForm] = useState({ name: "", phone: "", email: "", amount: "", receipt: null });
+  const [donationForm, setDonationForm] = useState({ name: "", phone: "", email: "", amount: "" });
   const [donationSubmitted, setDonationSubmitted] = useState(false);
   const [donationSending, setDonationSending] = useState(false);
   const [donationError, setDonationError] = useState("");
@@ -77,11 +77,7 @@ export default function GetInvolvedPage() {
   }, []);
 
   const handleDonationChange = (e) => {
-    if (e.target.name === "receipt") {
-      setDonationForm({ ...donationForm, receipt: e.target.files[0] || null });
-    } else {
-      setDonationForm({ ...donationForm, [e.target.name]: e.target.value });
-    }
+    setDonationForm({ ...donationForm, [e.target.name]: e.target.value });
   };
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -92,7 +88,7 @@ export default function GetInvolvedPage() {
     setTimeout(() => setCopiedAccount(""), 2500);
   };
 
-  // Submit Donation Form with File Attachment to Formspree
+  // Submit the donation details to Formspree
   const handleDonationSubmit = async (e) => {
     e.preventDefault();
     setDonationSending(true);
@@ -100,13 +96,16 @@ export default function GetInvolvedPage() {
 
     const data = new FormData();
     data.append("_subject", `New Donation Submission ${donationForm.name ? "from " + donationForm.name : ""}`);
+    data.append("form_type", "Donation details");
     data.append("name", donationForm.name || "Anonymous Donor");
     data.append("phone", donationForm.phone || "Not Provided");
-    data.append("email", donationForm.email || "Not Provided");
     data.append("amount", donationForm.amount || "Not Specified");
-    
-    if (donationForm.receipt) {
-      data.append("receipt", donationForm.receipt);
+
+    // Formspree checks that a field called "email" is a real email address,
+    // so a placeholder like "Not Provided" can make the whole submission fail.
+    // Only send the field when the donor actually filled it in.
+    if (donationForm.email.trim()) {
+      data.append("email", donationForm.email.trim());
     }
 
     try {
@@ -123,10 +122,19 @@ export default function GetInvolvedPage() {
       if (res.ok) {
         setDonationSubmitted(true);
       } else {
+        // Read Formspree's own explanation so a failure isn't a mystery.
         const json = await res.json().catch(() => ({}));
-        setDonationError(json.error || "Failed to submit donation details. Please try again.");
+        console.error("Formspree donation error:", res.status, json);
+        const reason =
+          json.error ||
+          (Array.isArray(json.errors) && json.errors.map((er) => er.message).filter(Boolean).join(", ")) ||
+          "";
+        setDonationError(
+          `Failed to submit donation details (error ${res.status}${reason ? `: ${reason}` : ""}). Please try again.`
+        );
       }
     } catch (err) {
+      console.error("Donation submit network error:", err);
       setDonationError("Network error. Please check your connection and try again.");
     } finally {
       setDonationSending(false);
@@ -358,7 +366,7 @@ export default function GetInvolvedPage() {
                     Thank you for your generous support!
                   </h4>
                   <p className="text-stone-600 text-sm">
-                    Your details and transfer receipt have been sent successfully via Formspree.
+                    "Your donation details have been sent to the Osinman Foundation team."
                   </p>
                 </div>
               ) : (
@@ -378,10 +386,6 @@ export default function GetInvolvedPage() {
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-stone-700">Amount Donated (Optional)</label>
                     <input name="amount" value={donationForm.amount} onChange={handleDonationChange} placeholder="e.g. ₦10,000" className="field" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1 text-stone-700">Upload Transfer Receipt (Optional)</label>
-                    <input name="receipt" type="file" onChange={handleDonationChange} className="field text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-stone-200 file:text-stone-800 hover:file:bg-stone-300 cursor-pointer" />
                   </div>
                   {donationError && <p className="text-red-600 text-xs mt-1">{donationError}</p>}
                   <button type="submit" disabled={donationSending} className="btn-primary justify-center mt-2 w-full">
