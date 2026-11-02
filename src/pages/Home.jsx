@@ -250,8 +250,8 @@ const TEAM = [
   {
     initials: "GKS",
     name: "Mr. Gashon Kumbin Sheni",
-    role: "Secretary",
-    quote: "Mr. Gashon Kumbin Sheni is from Langtang North LGA of Plateau State. A trained Zoologist, he is deeply compassionate about supporting the needy and vulnerable in society.",
+    role: "Spiritual Head, and Member-Board of Trustees",
+    quote: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose.",
     tone: "burnt",
     photo: "/images/sheni.avif",
   },

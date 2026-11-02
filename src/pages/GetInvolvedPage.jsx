@@ -43,14 +43,6 @@ function Reveal({ children, delay = 0, className = "" }) {
   );
 }
 
-function FacebookIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M13.5 21v-8.2h2.75l.41-3.2H13.5V7.5c0-.93.26-1.56 1.59-1.56h1.7V3.1C16.5 3.06 15.5 3 14.35 3 11.9 3 10.25 4.49 10.25 7.2v2.4H7.5v3.2h2.75V21h3.25Z" />
-    </svg>
-  );
-}
-
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Get to Know Us", href: "/about" },
@@ -65,7 +57,7 @@ export default function GetInvolvedPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
-  // Donation Form State (Optional details & receipt)
+  // Donation Form State
   const [donationForm, setDonationForm] = useState({ name: "", phone: "", email: "", amount: "", receipt: null });
   const [donationSubmitted, setDonationSubmitted] = useState(false);
   const [donationSending, setDonationSending] = useState(false);
@@ -84,11 +76,9 @@ export default function GetInvolvedPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
-
   const handleDonationChange = (e) => {
     if (e.target.name === "receipt") {
-      setDonationForm({ ...donationForm, receipt: e.target.files[0] });
+      setDonationForm({ ...donationForm, receipt: e.target.files[0] || null });
     } else {
       setDonationForm({ ...donationForm, [e.target.name]: e.target.value });
     }
@@ -102,35 +92,41 @@ export default function GetInvolvedPage() {
     setTimeout(() => setCopiedAccount(""), 2500);
   };
 
-  // Submit Donation Form to Formspree Endpoint
+  // Submit Donation Form with File Attachment to Formspree
   const handleDonationSubmit = async (e) => {
     e.preventDefault();
     setDonationSending(true);
     setDonationError("");
 
-    const formData = new FormData();
-    formData.append("_subject", `New Donation Details & Receipt Submission ${donationForm.name ? "from " + donationForm.name : ""}`);
-    formData.append("name", donationForm.name || "Anonymous Donor");
-    formData.append("phone", donationForm.phone || "Not Provided");
-    formData.append("email", donationForm.email || "Not Provided");
-    formData.append("amount", donationForm.amount || "Not Specified");
+    const data = new FormData();
+    data.append("_subject", `New Donation Submission ${donationForm.name ? "from " + donationForm.name : ""}`);
+    data.append("name", donationForm.name || "Anonymous Donor");
+    data.append("phone", donationForm.phone || "Not Provided");
+    data.append("email", donationForm.email || "Not Provided");
+    data.append("amount", donationForm.amount || "Not Specified");
+    
     if (donationForm.receipt) {
-      formData.append("receipt", donationForm.receipt);
+      data.append("receipt", donationForm.receipt);
     }
 
     try {
+      // NOTE: Do not set 'Content-Type' header manually when sending FormData via fetch.
+      // The browser automatically assigns multipart/form-data along with the required boundary.
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+        body: data,
       });
 
       if (res.ok) {
         setDonationSubmitted(true);
       } else {
-        setDonationError("Failed to submit donation details. Please try again.");
+        const json = await res.json().catch(() => ({}));
+        setDonationError(json.error || "Failed to submit donation details. Please try again.");
       }
-    } catch {
+    } catch (err) {
       setDonationError("Network error. Please check your connection and try again.");
     } finally {
       setDonationSending(false);
@@ -304,6 +300,7 @@ export default function GetInvolvedPage() {
                 <div className="flex items-center justify-between mt-2 bg-white p-3 rounded-lg border border-stone-200">
                   <span className="font-mono font-bold text-base">Account Number: 2143163576</span>
                   <button 
+                    type="button"
                     onClick={() => copyToClipboard("2143163576", "domestic")}
                     className="flex items-center gap-1 text-xs bg-stone-100 hover:bg-stone-200 py-1.5 px-3 rounded font-medium transition-colors"
                   >
@@ -315,11 +312,12 @@ export default function GetInvolvedPage() {
               {/* Domiciliary / Foreign Accounts */}
               <div className="account-box">
                 <p className="text-xs font-bold uppercase tracking-wider text-burnt mb-1">Domiciliary / Foreign Accounts</p>
-                <p className="text-sm mb-2">Account Name: <strong>Osinman Foundation</strong></p>
+                <p className="text-sm mb-2">Account Name: <strong>Osi-nman Foundation</strong></p>
                 
                 <div className="flex items-center justify-between mt-2 bg-white p-3 rounded-lg border border-stone-200 mb-2">
                   <span className="font-mono text-sm">1. Dollar: <strong>3005247463</strong></span>
                   <button 
+                    type="button"
                     onClick={() => copyToClipboard("3005247463", "dollar")}
                     className="flex items-center gap-1 text-xs bg-stone-100 hover:bg-stone-200 py-1.5 px-3 rounded font-medium"
                   >
@@ -330,6 +328,7 @@ export default function GetInvolvedPage() {
                 <div className="flex items-center justify-between bg-white p-3 rounded-lg border border-stone-200">
                   <span className="font-mono text-sm">2. Euro: <strong>3005247401</strong></span>
                   <button 
+                    type="button"
                     onClick={() => copyToClipboard("3005247401", "euro")}
                     className="flex items-center gap-1 text-xs bg-stone-100 hover:bg-stone-200 py-1.5 px-3 rounded font-medium"
                   >
@@ -359,7 +358,7 @@ export default function GetInvolvedPage() {
                     Thank you for your generous support!
                   </h4>
                   <p className="text-stone-600 text-sm">
-                    Your details and transfer receipt have been sent directly to our team via Formspree.
+                    Your details and transfer receipt have been sent successfully via Formspree.
                   </p>
                 </div>
               ) : (
