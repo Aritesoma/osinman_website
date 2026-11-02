@@ -248,8 +248,8 @@ const TEAM = [
     photo: "/images/rita.avif",
   },
   {
-    initials: "GKS",
-    name: "Mr. Gashon Kumbin Sheni",
+    initials: "AOO",
+    name: "Austin Odaji Oko",
     role: "Spiritual Head, and Member-Board of Trustees",
     quote: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose.",
     tone: "burnt",
