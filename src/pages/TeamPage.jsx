@@ -176,14 +176,7 @@ const EXECUTIVE_TEAM = [
     photo: "/images/ponchang.png",
     bio: "Mr. Ponchang Paul Jangkam is a youth and student leader from Langtang North, Plateau State, and an active member of the Osinman Foundation. As part of the Alumni/Youth/Student Leaders team, Ponchang contributes to youth engagement, leadership development, and initiatives that promote education, community participation, and opportunities for young people.",
   },
-  {
-    name: "Timman Kumpon",
-    role: "Coordinator",
-    location: "Langtang North Plateau State",
-    photo: "/images/timman.png",
-    bio: "Mr. Timman Kumpon is a coordinator from Langtang North, Plateau State, and an active member of the Osinman Foundation. As part of the team, he contributes to youth engagement, leadership development, and initiatives that promote education, community participation, and opportunities for young people.",
-  },
- 
+
 ];
 
 /* Section 2: Local Organizing Committee (LOC) Members (Moved from execution with state tags removed from cards)[cite: 1] */
@@ -224,6 +217,14 @@ const LOC_MEMBERS = [
     photo: "/images/nanbol.png",
     bio: "Mr. Nanbol Dauda Danbana serves as an Adviser, Donor, and Support Lead at Osinman Foundation, providing strategic guidance and support towards advancing the Foundation’s mission. Through his contributions and commitment, he helps strengthen the Foundation’s initiatives, support community development, and drive meaningful impact through partnerships and resource mobilization.",
   },
+    {
+    name: "Timman Kumpon",
+    role: "Coordinator",
+    location: "Langtang North Plateau State",
+    photo: "/images/timman.jpg",
+    bio: "Mr. Timman Kumpon is a coordinator from Langtang North, Plateau State, and an active member of the Osinman Foundation. As part of the team, he contributes to youth engagement, leadership development, and initiatives that promote education, community participation, and opportunities for young people.",
+  },
+ 
 ];
 
 export default function TeamPage() {
