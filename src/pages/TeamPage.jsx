@@ -219,7 +219,7 @@ const LOC_MEMBERS = [
   },
     {
     name: "Timman Kumpon",
-    role: "Coordinator",
+    role: "Outreach Coordinator",
     location: "Langtang North Plateau State",
     photo: "/images/timman.jpg",
     bio: "Mr. Timman Kumpon is a coordinator from Langtang North, Plateau State, and an active member of the Osinman Foundation. As part of the team, he contributes to youth engagement, leadership development, and initiatives that promote education, community participation, and opportunities for young people.",
