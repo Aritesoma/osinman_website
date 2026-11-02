@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Menu, X, ArrowRight, MapPin, Mail, Phone, Calendar, Clock } from "lucide-react";
+import { Menu, X, ArrowRight, MapPin, Mail, Phone, Calendar } from "lucide-react";
 
 /* Same design system as the rest of the site. */
 
@@ -52,29 +52,6 @@ function FacebookIcon({ size = 18 }) {
     </svg>
   );
 }
-function TwitterIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.53 3h3.16l-6.9 7.89L21.9 21h-6.35l-4.97-6.5L4.87 21H1.7l7.38-8.44L2.3 3h6.5l4.5 5.94L17.53 3Zm-1.11 16.17h1.75L7.66 4.73H5.78l10.64 14.44Z" />
-    </svg>
-  );
-}
-function InstagramIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-function LinkedinIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3.5 9.5h3v11h-3v-11Zm6.5 0h2.9v1.5h.04c.4-.76 1.4-1.56 2.86-1.56 3.06 0 3.62 2.02 3.62 4.63v6.43h-3v-5.7c0-1.36-.02-3.1-1.89-3.1-1.9 0-2.19 1.48-2.19 3v5.8h-3v-11Z" />
-    </svg>
-  );
-}
 
 function WhatsAppIcon({ size = 18 }) {
   return (
@@ -92,44 +69,20 @@ const NAV_LINKS = [
   { label: "The Team", href: "/team" },
 ];
 
-// Served from the /public folder. Update these paths to match your own
-// files (e.g. public/images/events/health-fair.jpg).
 const UPCOMING_EVENTS = [
   {
-    day: "20",
-    month: "Sep",
+    day: "30",
+    month: "Dec",
     year: "2026",
-    title: "Annual Charity Walk & Fun Run",
-    time: "7:00 AM",
-    location: "Millennium Park, Abuja, FCT",
-    body: "A morning walk/run bringing together donors, volunteers, and the community to raise funds and awareness for our year-round programs.",
+    title: "End of year Annual welfare/outreach program for the elderly widows/widowers",
+    location: "Langtang, Plateau State",
   },
   {
-    day: "05",
-    month: "Sep",
-    year: "2026",
-    title: "Back-to-School Supply Drive",
-    time: "9:00 AM",
-    location: "Bright Futures Literacy Center, Plateau State",
-    body: "Distributing school bags, books, and uniforms to children in the literacy program ahead of the new academic term.",
-  },
-  {
-    day: "10",
-    month: "Oct",
-    year: "2026",
-    title: "Community Health Fair",
-    time: "8:00 AM – 3:00 PM",
-    location: "Kaduna State",
-    body: "Free health screenings, vaccinations, and wellness talks delivered by volunteer doctors and nurses.",
-  },
-  {
-    day: "15",
-    month: "Nov",
-    year: "2026",
-    title: "Skills Center Graduation Ceremony",
-    time: "11:00 AM",
-    location: "Osinman Skills Center, Plateau State",
-    body: "Celebrating this year's cohort of tailoring, carpentry, and digital literacy trainees as they graduate into independent work.",
+    day: "—",
+    month: "Easter",
+    year: "2027",
+    title: "End of year Annual welfare/outreach program for the elderly widows/widowers",
+    location: "Langtang, Plateau State",
   },
 ];
 
@@ -234,15 +187,6 @@ export default function EventsPage() {
         }
         .btn-primary:hover { background: var(--burnt-dark); transform: translateY(-3px); box-shadow: 0 14px 28px -10px rgba(193,80,46,0.65); }
 
-        .btn-outline-ink {
-          display: inline-flex; align-items: center; gap: 0.5rem;
-          background: transparent; color: var(--ink);
-          border: 1.5px solid rgba(36,28,23,0.2);
-          padding: 0.7rem 1.3rem; border-radius: 999px; font-weight: 600; font-size: 0.88rem;
-          transition: all 0.35s ease;
-        }
-        .btn-outline-ink:hover { border-color: var(--burnt); color: var(--burnt); background: var(--white); transform: translateY(-3px); }
-
         .nav-wrap { transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
         .nav-link {
           position: relative; color: var(--ink); font-weight: 500; font-size: 0.92rem;
@@ -261,12 +205,6 @@ export default function EventsPage() {
         .mobile-panel { transition: transform 0.45s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease; }
         .mobile-backdrop { transition: opacity 0.4s ease; }
 
-        @keyframes nav-drop-in {
-          from { opacity: 0; transform: translateY(-16px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .nav-enter { animation: nav-drop-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
-
         .reveal {
           opacity: 0;
           transform: translateY(64px) scale(0.9);
@@ -278,26 +216,15 @@ export default function EventsPage() {
           will-change: opacity, transform, filter;
         }
         .reveal-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        .reveal.reveal-pop {
-          transform: translateY(72px) scale(0.85) rotate(-3deg);
-          transition:
-            opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 1.15s cubic-bezier(0.22, 1.4, 0.36, 1),
-            filter 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.reveal-pop.reveal-visible { transform: translateY(0) scale(1) rotate(0deg); }
 
-        /* Upcoming event cards */
         .card-event {
           background: var(--white);
           border-radius: 1.25rem;
           padding: 1.75rem;
           display: flex;
           gap: 1.25rem;
-          transition: transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.5s cubic-bezier(.2,.8,.2,1);
           box-shadow: 0 2px 12px -6px rgba(36,28,23,0.1);
         }
-        .card-event:hover { transform: translateY(-6px); box-shadow: 0 18px 34px -18px rgba(36,28,23,0.2); }
 
         .date-badge {
           flex-shrink: 0;
@@ -309,31 +236,18 @@ export default function EventsPage() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          transition: background-color 0.4s ease, transform 0.4s ease;
         }
-        .card-event:hover .date-badge { background: var(--burnt); transform: rotate(-4deg) scale(1.05); }
-        .date-badge .day { font-family: 'Fraunces', serif; font-size: 1.3rem; line-height: 1; color: var(--burnt); transition: color 0.4s ease; }
-        .date-badge .month { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); transition: color 0.4s ease; }
-        .card-event:hover .date-badge .day,
-        .card-event:hover .date-badge .month { color: var(--white); }
+        .date-badge .day { font-family: 'Fraunces', serif; font-size: 1.3rem; line-height: 1; color: var(--burnt); }
+        .date-badge .month { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 
-        /* Past event cards */
         .card-past {
           background: var(--white);
           border-radius: 1.25rem;
           overflow: hidden;
-          transition: transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.5s cubic-bezier(.2,.8,.2,1);
           box-shadow: 0 2px 12px -6px rgba(36,28,23,0.1);
         }
-        .card-past:hover { transform: translateY(-8px); box-shadow: 0 20px 36px -18px rgba(36,28,23,0.2); }
         .past-photo-wrap { overflow: hidden; position: relative; aspect-ratio: 16 / 10; }
-        .past-photo {
-          width: 100%; height: 100%; object-fit: cover; display: block;
-          filter: grayscale(20%);
-          transform: scale(1);
-          transition: transform 0.8s cubic-bezier(.2,.8,.2,1), filter 0.6s ease;
-        }
-        .card-past:hover .past-photo { transform: scale(1.08); filter: grayscale(0%); }
+        .past-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .social-dot {
           width: 40px; height: 40px; border-radius: 999px;
@@ -342,11 +256,6 @@ export default function EventsPage() {
           transition: all 0.3s ease;
         }
         .social-dot:hover { background: var(--burnt); border-color: var(--burnt); transform: translateY(-3px); }
-
-        @media (prefers-reduced-motion: reduce) {
-          .reveal, .nav-enter, .card-event, .card-past { transition: none !important; animation: none !important; filter: none !important; }
-          .reveal { opacity: 1 !important; transform: none !important; }
-        }
       `}</style>
 
       {/* ---------------- NAV ---------------- */}
@@ -401,11 +310,6 @@ export default function EventsPage() {
             </a>
           ))}
         </nav>
-        <div className="px-6 mt-8">
-          <a href="/get-involved" onClick={closeMenu} className="btn-primary w-full justify-center">
-            Get Involved <ArrowRight size={16} />
-          </a>
-        </div>
       </div>
 
       {/* ---------------- PAGE HERO ---------------- */}
@@ -424,12 +328,6 @@ export default function EventsPage() {
               Where the community and the work meet in person.
             </h1>
           </Reveal>
-          <Reveal delay={180}>
-            <p className="text-cream mt-5 max-w-lg" style={{ opacity: 0.75, lineHeight: 1.75 }}>
-             From counselling and community outreach to health initiatives and shared moments of 
-             connection, our events bring people together—creating space to listen, care, connect, and make a difference.
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -447,7 +345,7 @@ export default function EventsPage() {
 
           <div className="flex flex-col gap-5">
             {UPCOMING_EVENTS.map((e, i) => (
-              <Reveal key={e.title} delay={i * 90} className="reveal-pop">
+              <Reveal key={e.title + i} delay={i * 90} className="reveal-pop">
                 <div className="card-event flex-col sm:flex-row">
                   <div className="date-badge">
                     <span className="day">{e.day}</span>
@@ -457,13 +355,9 @@ export default function EventsPage() {
                     <h3 className="font-display font-medium mb-2" style={{ fontSize: "1.15rem" }}>
                       {e.title}
                     </h3>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 text-inksoft" style={{ fontSize: "0.82rem", opacity: 0.75 }}>
-                      <span className="flex items-center gap-1.5"><Clock size={13} /> {e.time}</span>
-                      <span className="flex items-center gap-1.5"><MapPin size={13} /> {e.location}</span>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-inksoft" style={{ fontSize: "0.85rem", opacity: 0.8 }}>
+                      <span className="flex items-center gap-1.5"><MapPin size={14} color="var(--burnt)" /> {e.location}</span>
                     </div>
-                    <p className="text-inksoft" style={{ lineHeight: 1.6, fontSize: "0.92rem" }}>
-                      {e.body}
-                    </p>
                   </div>
                 </div>
               </Reveal>
@@ -486,7 +380,7 @@ export default function EventsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {PAST_EVENTS.map((e, i) => (
-              <Reveal key={e.title} delay={i * 90} className="reveal-pop">
+              <Reveal key={e.title + i} delay={i * 90} className="reveal-pop">
                 <div className="card-past h-full flex flex-col">
                   <div className="past-photo-wrap">
                     <img src={e.photo} alt={e.title} className="past-photo" />
@@ -510,30 +404,6 @@ export default function EventsPage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ---------------- CLOSING CTA ---------------- */}
-      <section className="bg-ink py-20 md:py-24">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <Reveal>
-            <p className="eyebrow on-dark mb-4">Don't Miss the Next One</p>
-          </Reveal>
-          <Reveal delay={60}>
-            <h2 className="text-cream font-display font-medium mb-5" style={{ fontSize: "clamp(1.6rem, 4vw, 2.2rem)" }}>
-              Come meet the community you're supporting.
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="text-cream mb-8" style={{ opacity: 0.72, lineHeight: 1.7 }}>
-              Reach out and we'll keep you posted on upcoming events near you.
-            </p>
-          </Reveal>
-          <Reveal delay={180}>
-            <a href="/get-involved" className="btn-primary">
-              Get Involved <ArrowRight size={16} />
-            </a>
-          </Reveal>
         </div>
       </section>
 
@@ -587,7 +457,6 @@ export default function EventsPage() {
               <p className="eyebrow on-dark mb-4">Follow Along</p>
               <div className="flex gap-3">
                 <a href="https://web.facebook.com/osinmanfoundation/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
-                <a href="https://wa.me/2348037051210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-dot"><WhatsAppIcon size={17} /></a>
               </div>
             </div>
           </div>
@@ -595,9 +464,6 @@ export default function EventsPage() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-8 border-t" style={{ borderColor: "rgba(251,245,236,0.08)" }}>
             <p className="text-cream" style={{ opacity: 0.45, fontSize: "0.82rem" }}>
               © {new Date().getFullYear()} Osinman Foundation. All rights reserved.
-            </p>
-            <p className="text-cream" style={{ opacity: 0.45, fontSize: "0.82rem" }}>
-              Registered NGO · Abuja, Nigeria
             </p>
           </div>
         </div>

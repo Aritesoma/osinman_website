@@ -722,7 +722,7 @@ export default function Home() {
             <Reveal delay={240}>
               <div className="flex flex-wrap gap-4 mt-9">
                 <a href="/get-involved" className="btn-outline">
-                  Join the Journey
+                  Donate to a cause
                 </a>
               </div>
             </Reveal>

@@ -3,7 +3,6 @@ import {
   Menu,
   X,
   ArrowRight,
-  ArrowUpRight,
   MapPin,
   Mail,
   Phone,
@@ -105,8 +104,6 @@ const NAV_LINKS = [
   { label: "The Team", href: "/team" },
 ];
 
-// Served from the /public folder. Update these paths to match your own
-// files (e.g. public/images/projects/food-relief.jpg).
 const ONGOING_PROJECTS = [
   {
     icon: Droplets,
@@ -146,30 +143,25 @@ const ONGOING_PROJECTS = [
   },
 ];
 
-const COMPLETED_PROJECTS = [
+// Updated to precisely match the three scholarship items requested in your update document[cite: 1]
+const COMPLETED_SCHOLARSHIPS = [
   {
-    year: "2019",
-    title: "Osinman Skills Center Construction",
-    body: "Built the foundation's first permanent training facility, giving the vocational program a real home after five years of borrowed spaces.",
-    location: "Plateau State",
-  },
-  {
-    year: "2020",
-    title: "Community Borehole Project — Phase 1",
-    body: "Delivered clean, reliable water access to five rural communities that previously relied on hours-long walks to the nearest source.",
+    year: "2012",
+    title: "Orphan Scholarship based on technical education and skill acquisition programs",
+    details: "5 Candidates Sponsored to Federal Technical College Kafanchan",
     location: "Kaduna State",
   },
   {
-    year: "2020–2021",
-    title: "COVID-19 Community Response",
-    body: "Distributed PPE and hygiene kits, ran public health education campaigns, and provided emergency food support through the height of the pandemic.",
-    location: "Abuja, FCT & Plateau State",
+    year: "2013",
+    title: "Orphan Scholarship based on technical education and skill acquisition programs",
+    details: "10 Candidates Sponsored to federal technical College Kafanchan",
+    location: "Kaduna State",
   },
   {
-    year: "2022",
-    title: "Emergency Flood Relief Response",
-    body: "Coordinated emergency shelter, food, and medical support for families displaced by seasonal flooding.",
-    location: "Niger State",
+    year: "2013",
+    title: "Orphan Scholarship based on technical education and skill acquisition programs",
+    details: "5 Candidates Sponsored to Steppingstone Secondary School, Langtang",
+    location: "Plateau State",
   },
 ];
 
@@ -235,22 +227,6 @@ export default function ProjectsPage() {
           box-shadow: 0 8px 24px -10px rgba(193,80,46,0.55);
         }
         .btn-primary:hover { background: var(--burnt-dark); transform: translateY(-3px); box-shadow: 0 14px 28px -10px rgba(193,80,46,0.65); }
-
-        .btn-outline {
-          display: inline-flex; align-items: center; gap: 0.5rem;
-          background: transparent; color: var(--cream);
-          border: 1.5px solid rgba(251,245,236,0.4);
-          padding: 0.85rem 1.6rem; border-radius: 999px; font-weight: 600;
-          transition: all 0.35s ease;
-        }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-
-        .btn-ghost-ink {
-          display: inline-flex; align-items: center; gap: 0.4rem;
-          color: var(--burnt); font-weight: 600;
-          transition: gap 0.3s ease, color 0.3s ease;
-        }
-        .btn-ghost-ink:hover { gap: 0.7rem; color: var(--burnt-dark); }
 
         .nav-wrap { transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
         .nav-link {
@@ -358,11 +334,6 @@ export default function ProjectsPage() {
           transition: all 0.3s ease;
         }
         .social-dot:hover { background: var(--burnt); border-color: var(--burnt); transform: translateY(-3px); }
-
-        @media (prefers-reduced-motion: reduce) {
-          .reveal, .nav-enter, .card-project, .completed-row { transition: none !important; animation: none !important; filter: none !important; }
-          .reveal { opacity: 1 !important; transform: none !important; }
-        }
       `}</style>
 
       {/* ---------------- NAV ---------------- */}
@@ -498,7 +469,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ---------------- COMPLETED PROJECTS ---------------- */}
+      {/* ---------------- COMPLETED PROJECTS (SCHOLARSHIPS) ---------------- */}
       <section className="bg-cream-deep py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6">
           <Reveal>
@@ -506,7 +477,7 @@ export default function ProjectsPage() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="font-display font-medium mb-4" style={{ fontSize: "clamp(1.7rem, 3.5vw, 2.4rem)" }}>
-              Completed Projects
+              Completed Projects (Scholarships)
             </h2>
           </Reveal>
           <Reveal delay={100}>
@@ -517,8 +488,8 @@ export default function ProjectsPage() {
           </Reveal>
 
           <div>
-            {COMPLETED_PROJECTS.map((p, i) => (
-              <Reveal key={p.title} delay={i * 80}>
+            {COMPLETED_SCHOLARSHIPS.map((p, i) => (
+              <Reveal key={p.title + i} delay={i * 80}>
                 <div className="completed-row">
                   <span className="completed-year">{p.year}</span>
                   <div>
@@ -530,8 +501,8 @@ export default function ProjectsPage() {
                     <h3 className="font-display font-medium mb-1.5" style={{ fontSize: "1.1rem" }}>
                       {p.title}
                     </h3>
-                    <p className="text-inksoft" style={{ lineHeight: 1.65, fontSize: "0.92rem" }}>
-                      {p.body}
+                    <p className="text-inksoft mb-1" style={{ lineHeight: 1.65, fontSize: "0.92rem" }}>
+                      {p.details}
                     </p>
                     <p className="text-inksoft mt-2 flex items-center gap-1.5" style={{ fontSize: "0.8rem", opacity: 0.7 }}>
                       <MapPin size={13} /> {p.location}
@@ -619,7 +590,6 @@ export default function ProjectsPage() {
               <p className="eyebrow on-dark mb-4">Follow Along</p>
               <div className="flex gap-3">
                 <a href="https://web.facebook.com/osinmanfoundation/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
-                <a href="https://wa.me/2348037051210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-dot"><WhatsAppIcon size={17} /></a>
               </div>
             </div>
           </div>

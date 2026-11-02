@@ -89,9 +89,6 @@ function WhatsAppIcon({ size = 18 }) {
   );
 }
 
-/* Cross-page links use plain <a> tags so they work as normal browser
-   navigation regardless of router setup — Home is "/", and sections on
-   Home are reached with a hash (e.g. "/#projects"). */
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Get to Know Us", href: "/about" },
@@ -100,20 +97,19 @@ const NAV_LINKS = [
   { label: "Join Us", href: "/get-involved" },
 ];
 
-// Served from the /public folder — drop your own files at these paths
-// (e.g. public/images/team/blessing.jpg). The first four match the
-// same photos used in the Team section on the home page.
-const TEAM = [
+/* Section 1: Executive Members (Ordered precisely with new additions and corrected bios) */
+const EXECUTIVE_TEAM = [
   {
     name: "Nurse Mampak Nanre",
     role: "Founder & President",
     location: "Abuja, FCT",
     photo: "/images/t1.avif",
-    bio: "Nurse Mampak Nanre, born into the family of Mampak Nden from Kwanpe village in Langtang North LGA of Plateau State, was inspired to establish OSI-NMAN Foundation through her daily experiences in healthcare. In her work, she encountered patients facing not only illness but also neglect, poverty, and lack of support. While caring for the elderly, she witnessed loneliness, abandonment, and limited access to basic needs. Her work with cancer patients exposed her to the physical, psychological, emotional, and financial burdens of long-term treatment—often without adequate family or community support. Her compassion was further deepened by her encounters with orphans, who made up over 20% of her community population between 2002 and 2006 due to religious crises in Southern Plateau State, Nigeria. Many of these children lacked stable support systems and access to education from 2007 to date. These experiences ignited in her a strong desire to go beyond bedside care by creating a platform that provides holistic support—medically, emotionally, socially, and educationally. Through OSI-NMAN Foundation, she has supported orphans with scholarships in technical fields, provided food relief to the elderly, and delivered cancer information, education, screening, and care navigation to rural communities.",
+    bio: "Nurse Mampak Nanre, born into the family of Mampak Nden from Kwanpe village in Langtang North LGA of Plateau State, was inspired to establish OSINMAN Foundation through her daily experiences in healthcare. In her work, she encountered patients facing not only illness but also neglect, poverty, and lack of support. While caring for the elderly, she witnessed loneliness, abandonment, and limited access to basic needs. Her work with cancer patients exposed her to the physical, psychological, emotional, and financial burdens of long-term treatment—often without adequate family or community support. Her compassion was further deepened by her encounters with orphans, who made up over 20% of her community population between 2002 and 2006 due to religious crises in Southern Plateau State, Nigeria. Many of these children lacked stable support systems and access to education from 2007 to date. These experiences ignited in her a strong desire to go beyond bedside care by creating a platform that provides holistic support—medically, emotionally, socially, and educationally. Through OSI-NMAN Foundation, she has supported orphans with scholarships in technical fields, provided food relief to the elderly, and delivered cancer information, education, screening, and care navigation to rural communities.",
   },
   {
     name: "Mr. Truman",
     role: "Vice President",
+    location: "Abuja, FCT",
     photo: "/images/truman.avif",
     bio: "Mr. Truman is a communications specialist with experience in the development sector, specializing in strategic communications, advocacy and digital media. He has a strong track record in managing brand communications and reputation, developing IEC materials and delivering impactful campaigns. Through visual storytelling, he crafts compelling narratives that drive change, contributing to initiatives focused on justice sector reforms, inclusive political participation and humanitarian interventions in Nigeria.",
   },
@@ -123,6 +119,20 @@ const TEAM = [
     location: "Abuja, FCT",
     photo: "/images/rita.avif",
     bio: "Mrs. Nanbol Rita Danbana is a dedicated professional based in Abuja, Nigeria. She is married and brings a strong passion for care, organization, and accountability to her work. As the Treasurer of OSI-NMAN Foundation, she plays a vital role in ensuring transparency, proper financial management, and the effective coordination of the foundation’s resources.",
+  },
+  {
+    name: "Austin Odaji Oko",
+    role: "Spiritual Head, and Member-Board of Trustees",
+    location: "Abuja, FCT",
+    photo: "/images/sheni.avif",
+    bio: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose. He offers spiritual leadership and advisory support, ensuring that the foundation’s activities remain grounded in compassion, service, and strong ethical values.",
+  },
+  {
+    name: "Selkap Miri",
+    role: "Patron",
+    location: "Plateau State",
+    photo: "/images/selkap.jpeg",
+    bio: "Mr. Selkap Miri is a dedicated patron of the OSINMAN Foundation, committed to advancing the wellbeing and dignity of vulnerable individuals and families. Through their support, advocacy, and belief in community-driven change, they contribute to OSINMAN’s efforts in healthcare, elderly care, support for widows, skills development, and humanitarian outreach, helping create stronger and more caring communities."
   },
   {
     name: "Mr. Gashon Kumbin Sheni",
@@ -138,21 +148,6 @@ const TEAM = [
     photo: "/images/nan.avif",
     bio: "Mr. Domkur Isaac Nantip is the Assistant Secretary of the Osinman Foundation, responsible for supporting administrative processes, managing documentation, and facilitating effective communication within the organization. He is also an alumnus of the foundation, having benefited from its programs and initiatives in the past. His personal experience as a beneficiary gives him a unique perspective and a deep understanding of the foundation’s mission, allowing him to contribute meaningfully to its ongoing efforts to support communities in need.",
   },
-   {
-    name: "Austin Odaji Oko",
-    role: "Spiritual Head, and Member-Board of Trustees",
-    location: "Abuja, FCT",
-    photo: "/images/sheni.avif",
-    bio: "As the Spiritual Head since 2007 and a Member of the Board of Trustees, Mr. Austin Odaji Oko plays a vital role in guiding the Osinman Foundation with integrity and purpose. He offers spiritual leadership and advisory support, ensuring that the foundation’s activities remain grounded in compassion, service, and strong ethical values.",
-  },
-   {
-    name: "Samson Shedrack Tongdil",
-    role: "IT Assistant and Financial Secretary",
-    location: "Abuja, FCT",
-    photo: "/images/shed.avif",
-    bio: "Samson Shedrack Tongdil serves as the IT and Assistant Financial Secretary of the Osinman Foundation. In this dual role, he oversees the foundation’s technology infrastructure while supporting financial record-keeping, reporting, and accountability processes. His contributions help ensure efficient operations and transparency across the organization, enabling the foundation to effectively serve its mission of supporting communities in need.",
-  },
- 
   {
     name: "Mrs. Justina Makama",
     role: "Social/welfare coordinator",
@@ -161,32 +156,66 @@ const TEAM = [
     bio: "Mrs. Justina Makama serves as the Social/Welfare Coordinator at the Osinman Foundation. She supports the NGO by overseeing the planning and implementation of welfare initiatives, ensuring that the foundation’s programs effectively address the needs of vulnerable populations. Her role involves coordinating social support services, advocating for community welfare, and contributing to the overall mission of the foundation to improve the well-being of those it serves.",
   },
   {
-    name: "Samuel Selfa Zingbong",
-    role: "Outreach Coordinator",
-    location: "Plateau State",
-    photo: "/images/sam.avif",
-    bio: "As the Plateau State Outreach Coordinator, Mr. Samuel Selfa Zingbong plays a vital role in advancing the Osinman Foundation’s mission at the grassroots level. He is actively involved in community outreach, building relationships, and ensuring that support reaches those who need it most across Plateau State",
+    name: "Promise Y Makama (Zorimakama)",
+    role: "Craft/Fashion Lead",
+    location: "Abuja, FCT",
+    photo: "/images/promise.png",
+    bio: "Promise Y. Makama (Zorimakama) is a creative professional and the Craft/Fashion Lead at Osinman Foundation, based in Abuja, FCT. Passionate about creativity, craftsmanship, and fashion, she contributes to the Foundation’s efforts by promoting creative expression, developing craft and fashion initiatives, and supporting opportunities that empower individuals through skills, talent, and innovation.",
+  },
+   {
+    name: "Samson Shedrack Tongdil",
+    role: "IT Assistant and Financial Secretary",
+    location: "Abuja, FCT",
+    photo: "/images/shed.avif",
+    bio: "Samson Shedrack Tongdil serves as the IT and Assistant Financial Secretary of the Osinman Foundation. In this dual role, he oversees the foundation’s technology infrastructure while supporting financial record-keeping, reporting, and accountability processes. His contributions help ensure efficient operations and transparency across the organization, enabling the foundation to effectively serve its mission of supporting communities in need.",
   },
   {
+    name: "Ponchang Paul Jangkam",
+    role: "Alumni/Youth/Student leaders",
+    location: "Langtang North Plateau State",
+    photo: "/images/ponchang.png",
+    bio: "Mr. Ponchang Paul Jangkam is a youth and student leader from Langtang North, Plateau State, and an active member of the Osinman Foundation. As part of the Alumni/Youth/Student Leaders team, Ponchang contributes to youth engagement, leadership development, and initiatives that promote education, community participation, and opportunities for young people.",
+  },
+ 
+];
+
+/* Section 2: Local Organizing Committee (LOC) Members (Moved from execution with state tags removed from cards)[cite: 1] */
+const LOC_MEMBERS = [
+  {
     name: "Mr. Danbana Nansel Kubba",
-    role: "LOC Chairman",
-    location: "Plateau State",
+    role: "LOC CHAIRMAN",
     photo: "/images/danba.avif",
     bio: "Mr. Danbana Nansel Kubba is the LOC Chairman of the Osi-Nman Foundation, where he oversees the planning and coordination of the Foundation’s activities and programs. He is committed to community development and service.",
   },
   {
-    name: "Dindul Gabriel Mampak",
-    role: "Outreach Coordinator",
-    location: "Plateau State",
+    name: "Mr. Dindul Gabriel Mampak",
+    role: "OUTREACH COORDINATOR",
     photo: "/images/gab.avif",
     bio: "Mr. Dindul Gabriel Mampak serves as the Plateau State Outreach Coordinator for the Osinman Foundation. In this role, he leads and coordinates outreach initiatives across the state, fostering community engagement and ensuring the effective delivery of the foundation’s programs.",
   },
   {
-    name: "Selkap Miri",
-    role: "Patron",
-    location: "Plateau State",
-    photo: "/images/selkap.jpeg",
-    bio: "Mr. Selkap Miri is a dedicated patron of the OSINMAN Foundation, committed to advancing the wellbeing and dignity of vulnerable individuals and families. Through their support, advocacy, and belief in community-driven change, they contribute to OSINMAN’s efforts in healthcare, elderly care, support for widows, skills development, and humanitarian outreach, helping create stronger and more caring communities.",
+    name: "Rev. Barau Nanpon Matthias",
+    role: "OUTREACH COORDINATOR",
+    photo: "/images/barau.png",
+    bio: "Rev. Barau Nanpon Matthias serves as the Spiritual Father and Outreach Coordinator at Osinman Foundation, providing spiritual guidance, mentorship, and leadership while supporting the Foundation’s outreach initiatives.",
+  },
+  {
+    name: "Mr. Samuel Selfa Zingbong",
+    role: "OUTREACH COORDINATOR",
+    photo: "/images/sam.avif",
+    bio: "As the Plateau State Outreach Coordinator, Mr. Samuel Selfa Zingbong plays a vital role in advancing the Osinman Foundation’s mission at the grassroots level. He is actively involved in community outreach, building relationships, and ensuring that support reaches those who need it most across Plateau State",
+  },
+  {
+    name: "John Sati",
+    role: "OUTREACH COORDINATOR",
+    photo: "/images/john.png",
+    bio: "Mr. John Sati serves as the Coordinator for Pakuk, Yilla, and Bwazang at Osinman Foundation, overseeing community engagement and supporting the Foundation’s initiatives across these communities",
+  },
+  {
+    name: "Nanbol Dauda Danbana",
+    role: "ADVISER/SUPPORT LEAD",
+    photo: "/images/nanbol.png",
+    bio: "Mr. Nanbol Dauda Danbana serves as an Adviser, Donor, and Support Lead at Osinman Foundation, providing strategic guidance and support towards advancing the Foundation’s mission. Through his contributions and commitment, he helps strengthen the Foundation’s initiatives, support community development, and drive meaningful impact through partnerships and resource mobilization.",
   },
 ];
 
@@ -295,7 +324,7 @@ export default function TeamPage() {
         }
         .nav-enter { animation: nav-drop-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-        /* Reveal on scroll — dramatic, matching the home page */
+        /* Reveal on scroll */
         .reveal {
           opacity: 0;
           transform: translateY(64px) scale(0.9);
@@ -307,16 +336,6 @@ export default function TeamPage() {
           will-change: opacity, transform, filter;
         }
         .reveal-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-
-        .reveal.reveal-image {
-          transform: scale(1.18);
-          filter: blur(14px);
-          transition:
-            opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-            filter 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.reveal-image.reveal-visible { transform: scale(1); filter: blur(0); }
 
         /* Team profile cards */
         .profile-photo-wrap {
@@ -449,11 +468,16 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* ---------------- TEAM PROFILES ---------------- */}
+      {/* ---------------- SECTION 1: EXECUTIVE MEMBERS ---------------- */}
       <section className="bg-cream py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-6">
+          <Reveal>
+            <h2 className="font-display font-medium text-2xl mb-8 border-b pb-3 border-stone-300">
+              Executive Members
+            </h2>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {TEAM.map((m, i) => (
+            {EXECUTIVE_TEAM.map((m, i) => (
               <Reveal key={m.name} delay={(i % 6) * 70} className="reveal-pop">
                 <div className="profile-row h-full">
                   <div className="flex items-start gap-4 mb-4">
@@ -461,14 +485,51 @@ export default function TeamPage() {
                       <img src={m.photo} alt={`${m.name}, ${m.role}`} className="profile-photo" />
                     </div>
                     <div>
-                      <h2 className="font-display font-medium" style={{ fontSize: "1.15rem", lineHeight: 1.25 }}>
+                      <h3 className="font-display font-medium" style={{ fontSize: "1.15rem", lineHeight: 1.25 }}>
                         {m.name}
-                      </h2>
+                      </h3>
                       <p className="eyebrow mt-1" style={{ letterSpacing: "0.1em", fontSize: "0.65rem" }}>
                         {m.role}
                       </p>
-                      <p className="text-inksoft mt-1" style={{ fontSize: "0.78rem", opacity: 0.7 }}>
-                        {m.location}
+                      {m.location && (
+                        <p className="text-inksoft mt-1" style={{ fontSize: "0.78rem", opacity: 0.7 }}>
+                          {m.location}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-inksoft" style={{ lineHeight: 1.65, fontSize: "0.9rem" }}>
+                    {m.bio}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- SECTION 2: LOCAL ORGANIZING COMMITTEE (LOC) MEMBERS ---------------- */}
+      <section className="bg-cream-deep py-12 md:py-16 border-t border-stone-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <Reveal>
+            <h2 className="font-display font-medium text-2xl mb-8 border-b pb-3 border-stone-300">
+              LOCAL ORGANIZING COMMITTEE (LOC) MEMBERS
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {LOC_MEMBERS.map((m, i) => (
+              <Reveal key={m.name} delay={(i % 6) * 70} className="reveal-pop">
+                <div className="profile-row h-full">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="profile-photo-wrap">
+                      <img src={m.photo} alt={`${m.name}, ${m.role}`} className="profile-photo" />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-medium" style={{ fontSize: "1.15rem", lineHeight: 1.25 }}>
+                        {m.name}
+                      </h3>
+                      <p className="eyebrow mt-1" style={{ letterSpacing: "0.1em", fontSize: "0.65rem" }}>
+                        {m.role}
                       </p>
                     </div>
                   </div>
@@ -557,7 +618,6 @@ export default function TeamPage() {
               <p className="eyebrow on-dark mb-4">Follow Along</p>
               <div className="flex gap-3">
                 <a href="https://web.facebook.com/osinmanfoundation/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-dot"><FacebookIcon size={17} /></a>
-                <a href="https://wa.me/2348037051210" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-dot"><WhatsAppIcon size={17} /></a>
               </div>
             </div>
           </div>

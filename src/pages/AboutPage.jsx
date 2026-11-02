@@ -102,29 +102,6 @@ function FacebookIcon({ size = 18 }) {
     </svg>
   );
 }
-function TwitterIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.53 3h3.16l-6.9 7.89L21.9 21h-6.35l-4.97-6.5L4.87 21H1.7l7.38-8.44L2.3 3h6.5l4.5 5.94L17.53 3Zm-1.11 16.17h1.75L7.66 4.73H5.78l10.64 14.44Z" />
-    </svg>
-  );
-}
-function InstagramIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-function LinkedinIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3.5 9.5h3v11h-3v-11Zm6.5 0h2.9v1.5h.04c.4-.76 1.4-1.56 2.86-1.56 3.06 0 3.62 2.02 3.62 4.63v6.43h-3v-5.7c0-1.36-.02-3.1-1.89-3.1-1.9 0-2.19 1.48-2.19 3v5.8h-3v-11Z" />
-    </svg>
-  );
-}
 
 function WhatsAppIcon({ size = 18 }) {
   return (
@@ -191,9 +168,7 @@ const APPROACH_STEPS = [
 
 const REGIONS = [
   { name: "Federal Capital Territory", note: "Headquarters & founding community" },
-  { name: "Kaduna State", note: "Health outreach & water initiatives" },
-  { name: "Niger State", note: "Women's livelihood & health programs" },
-  { name: "Nasarawa State", note: "Literacy & community outreach" },
+  { name: "Plateau State (Langtang)", note: "Outreach & community initiatives" },
 ];
 
 export default function AboutPage() {
@@ -278,16 +253,6 @@ export default function AboutPage() {
         }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
 
-        .btn-outline-ink {
-          display: inline-flex; align-items: center; gap: 0.5rem;
-          background: transparent; color: var(--ink);
-          border: 1.5px solid rgba(36,28,23,0.2);
-          padding: 0.85rem 1.6rem; border-radius: 999px; font-weight: 600;
-          transition: all 0.35s ease;
-        }
-        .btn-outline-ink:hover { border-color: var(--burnt); color: var(--burnt); background: var(--white); transform: translateY(-3px); }
-
-        /* Nav */
         .nav-wrap { transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease; }
         .nav-link {
           position: relative; color: var(--ink); font-weight: 500; font-size: 0.92rem;
@@ -312,7 +277,6 @@ export default function AboutPage() {
         }
         .nav-enter { animation: nav-drop-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-        /* Reveal on scroll */
         .reveal {
           opacity: 0;
           transform: translateY(64px) scale(0.9);
@@ -325,31 +289,6 @@ export default function AboutPage() {
         }
         .reveal-visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 
-        .reveal.reveal-pop {
-          transform: translateY(72px) scale(0.85) rotate(-3deg);
-          transition:
-            opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 1.15s cubic-bezier(0.22, 1.4, 0.36, 1),
-            filter 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.reveal-pop.reveal-visible { transform: translateY(0) scale(1) rotate(0deg); }
-
-        .reveal.reveal-image {
-          transform: scale(1.18);
-          filter: blur(14px);
-          transition:
-            opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-            filter 1.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.reveal-image.reveal-visible { transform: scale(1); filter: blur(0); }
-
-        .reveal.reveal-left { transform: translateX(-70px) scale(0.94); filter: blur(8px); }
-        .reveal.reveal-left.reveal-visible { transform: translateX(0) scale(1); filter: blur(0); }
-        .reveal.reveal-right { transform: translateX(70px) scale(0.94); filter: blur(8px); }
-        .reveal.reveal-right.reveal-visible { transform: translateX(0) scale(1); filter: blur(0); }
-
-        /* About-page-specific cards */
         .card-value {
           background: var(--white);
           border-radius: 1.25rem;
@@ -359,10 +298,6 @@ export default function AboutPage() {
           box-shadow: 0 2px 12px -6px rgba(36,28,23,0.1);
         }
         .card-value:hover { transform: translateY(-8px); box-shadow: 0 20px 36px -18px rgba(36,28,23,0.2); }
-        .card-value .icon-badge {
-          transition: transform 0.5s cubic-bezier(.2,.8,.2,1), background-color 0.4s ease;
-        }
-        .card-value:hover .icon-badge { transform: rotate(-8deg) scale(1.08); background-color: var(--gold) !important; }
 
         .stat-block { text-align: center; }
         .stat-number {
@@ -385,9 +320,7 @@ export default function AboutPage() {
           -webkit-text-stroke: 1.5px var(--burnt);
           line-height: 1;
           flex-shrink: 0;
-          transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
         }
-        .step-row:hover .step-number { color: var(--burnt); }
 
         .region-chip {
           background: var(--white);
@@ -399,12 +332,6 @@ export default function AboutPage() {
         }
         .region-chip:hover { transform: translateX(6px); box-shadow: 0 12px 24px -14px rgba(36,28,23,0.18); }
 
-        .icon-badge {
-          position: relative;
-          border: none;
-          box-shadow: none;
-        }
-
         .social-dot {
           width: 40px; height: 40px; border-radius: 999px;
           display: flex; align-items: center; justify-content: center;
@@ -412,11 +339,6 @@ export default function AboutPage() {
           transition: all 0.3s ease;
         }
         .social-dot:hover { background: var(--burnt); border-color: var(--burnt); transform: translateY(-3px); }
-
-        @media (prefers-reduced-motion: reduce) {
-          .reveal, .nav-enter, .card-value, .step-row, .region-chip { transition: none !important; animation: none !important; filter: none !important; }
-          .reveal { opacity: 1 !important; transform: none !important; }
-        }
       `}</style>
 
       {/* ---------------- NAV ---------------- */}
@@ -502,7 +424,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={180}>
             <p className="text-cream mt-5 max-w-xl" style={{ opacity: 0.75, lineHeight: 1.75 }}>
-             OSI-NMAN Foundation is a humanitarian, non-profit organization founded in 2007 with a deep passion for serving the most 
+             OSINMAN Foundation is a humanitarian, non-profit organization founded in 2007 with a deep passion for serving the most 
              vulnerable members of society. Built on the core values of compassion, dignity, and selfless service, the foundation is 
              dedicated to improving the quality of life of underserved communities.
             </p>
@@ -519,20 +441,15 @@ export default function AboutPage() {
               A community-first foundation, built from the ground up.
             </h2>
             <p className="text-inksoft mb-4" style={{ lineHeight: 1.75 }}>
-              OSI-NMAN Foundation is a humanitarian, non-profit organization founded in 2007 with
+              OSINMAN Foundation is a humanitarian, non-profit organization founded in 2007 with
               a deep passion for serving the most vulnerable members of society. Built on the
               core values of compassion, dignity, and selfless service, the foundation is
               dedicated to improving the quality of life of underserved communities.
             </p>
             <p className="text-inksoft mb-4" style={{ lineHeight: 1.75 }}>
-              Since its inception, OSI-NMAN Foundation has remained committed to providing care, support, and advocacy for elderly widows and widowers through initiatives such as food relief, clothing distribution, shelter support, and access to essential healthcare services. 
-              In addition, OSI-NMAN Foundation plays an active role in health awareness by providing information and education on cancer screening, care navigation, and emotional support. Through its community-based programs, the organization promotes dignity, peaceful coexistence, hope, and empowerment among individuals and families. 
-              Driven by a vision of a more compassionate and inclusive society, OSI-NMAN Foundation continues to touch lives and create lasting impact across communities.
-            </p>
-            <p className="text-inksoft" style={{ lineHeight: 1.75 }}>
-              We're a registered NGO governed by an independent board, staffed by people who are
-              mostly from the very communities we serve, and funded by donors who share our
-              insistence on transparency and measurable impact.
+              Since its inception, OSINMAN Foundation has remained committed to providing care, support, and advocacy for elderly widows and widowers through initiatives such as food relief, clothing distribution, shelter support, and access to essential healthcare services. 
+              In addition, OSINMAN Foundation plays an active role in health awareness by providing information and education on cancer screening, care navigation, and emotional support. Through its community-based programs, the organization promotes dignity, peaceful coexistence, hope, and empowerment among individuals and families. 
+              Driven by a vision of a more compassionate and inclusive society, OSINMAN Foundation continues to touch lives and create lasting impact across communities.
             </p>
           </Reveal>
           <Reveal delay={100} className="reveal-image">
@@ -565,7 +482,7 @@ export default function AboutPage() {
               <Reveal key={v.title} delay={i * 100} className="reveal-pop">
                 <div className="card-value">
                   <div
-                    className="icon-badge flex items-center justify-center rounded-full mb-5"
+                    className="flex items-center justify-center rounded-full mb-5"
                     style={{ width: 46, height: 46, background: "var(--cream-deep)" }}
                   >
                     <v.icon size={20} color="var(--burnt)" />
@@ -605,7 +522,7 @@ export default function AboutPage() {
               { target: 10234, suffix: "+", label: "Lives touched" },
               { target: 46, suffix: "", label: "Communities served" },
               { target: 214, suffix: "+", label: "Active volunteers" },
-              { target: 4, suffix: "", label: "States reached" },
+              { target: 2, suffix: "", label: "States reached" },
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 90} className="reveal-pop">
                 <div className="stat-block">
@@ -654,7 +571,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------------- WHERE WE WORK ---------------- */}
+      {/* ---------------- WHERE WE WORK (Updated to Two Locations) ---------------- */}
       <section className="bg-cream py-20 md:py-28">
         <div className="max-w-4xl mx-auto px-6">
           <Reveal>
@@ -662,7 +579,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={60}>
             <h2 className="font-display font-medium mb-10" style={{ fontSize: "clamp(1.7rem, 3.5vw, 2.4rem)" }}>
-              Four states, one growing map.
+              Two Locations, one Growing Map.
             </h2>
           </Reveal>
 
