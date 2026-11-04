@@ -362,11 +362,30 @@ export default function GetInvolvedPage() {
               {donationSubmitted ? (
                 <div className="p-6 rounded-2xl text-center bg-stone-50 border border-stone-200">
                   <CheckCircle2 size={32} color="var(--burnt)" className="mx-auto" />
-                  <h4 className="font-display font-medium mt-3 mb-1" style={{ fontSize: "1.1rem" }}>
+                  <h4 className="font-display font-medium mt-3 mb-3" style={{ fontSize: "1.1rem" }}>
                     Thank you for your generous support!
                   </h4>
+                  <p className="text-stone-600 text-sm mb-3">
+                    Your donation details have been successfully sent to the{" "}
+                    <strong>Osinman Foundation team.</strong>
+                  </p>
+                  <p className="text-stone-600 text-sm mb-3">
+                    <strong>Optional:</strong> To help us verify your transfer, you may share your
+                    transaction receipt with us via WhatsApp:
+                  </p>
+                  <p className="text-sm mb-3">
+                    <a
+                      href="https://wa.me/2348037051210"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-all underline font-medium"
+                      style={{ color: "var(--burnt)" }}
+                    >
+                      https://wa.me/2348037051210
+                    </a>
+                  </p>
                   <p className="text-stone-600 text-sm">
-                    "Your donation details have been sent to the Osinman Foundation team."
+                    Thank you for supporting the work of Osinman Foundation.
                   </p>
                 </div>
               ) : (
